@@ -2,6 +2,8 @@ Sample application based on codjo framework
 
 How to make a release
 
+Don't forget to change your _netrc file to match codjo account
+
 cd c:/dev/projects/codjo-stab
 git clone https://codjo@github.com/codjo/codjo-sample.git codjo-sample
 cd codjo-sample

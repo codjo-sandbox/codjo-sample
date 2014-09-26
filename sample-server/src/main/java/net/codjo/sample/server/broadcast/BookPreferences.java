@@ -1,11 +1,14 @@
 package net.codjo.sample.server.broadcast;
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.SQLException;
 import net.codjo.broadcast.common.PostBroadcaster;
 import net.codjo.broadcast.common.Preferences;
 import net.codjo.broadcast.common.Selector;
 import net.codjo.broadcast.common.computed.ComputedField;
+import net.codjo.sql.builder.OrderByField;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  *
  */
@@ -53,5 +56,10 @@ public class BookPreferences extends Preferences {
                                   BigDecimal sectionID, BigDecimal selectionID)
           throws SQLException {
         return new BookSelector(selectionID.intValue());
+    }
+
+    @Override
+    public OrderByField[] getOrderByFields() {
+        return new OrderByField[]{new OrderByField("AP_BOOK", "TITLE"), new OrderByField("AP_BOOK", "AUTHOR")};
     }
 }
